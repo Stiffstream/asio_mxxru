@@ -1,0 +1,6 @@
+syntax: glob
+
+.externals
+*.swp
+dev/target
+dev/asio
