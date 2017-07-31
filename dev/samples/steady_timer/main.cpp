@@ -5,14 +5,14 @@
 
 int main()
 {
-	asio::io_service io_service;
+	asio::io_context io_context;
 
-	asio::steady_timer timer( io_service, std::chrono::seconds(2) );
-	timer.async_wait( [&io_service]( const auto & ) {
+	asio::steady_timer timer( io_context, std::chrono::seconds(2) );
+	timer.async_wait( [&io_context]( const auto & ) {
 		std::cout << "timer elapsed" << std::endl;
-		io_service.stop();
+		io_context.stop();
 	} );
 
-	io_service.run();
+	io_context.run();
 }
 
